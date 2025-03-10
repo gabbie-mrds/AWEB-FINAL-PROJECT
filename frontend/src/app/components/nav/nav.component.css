@@ -1,6 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+.title, a, button {
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-@mixin sp-layout {
+
+/*@mixin sp-layout {
   @media screen and (max-width: 750px) {
     @content;
   }
@@ -79,7 +84,6 @@ p {
   --burger-menu-radius: 4em;
 
   position: fixed;
-  top: 5vh;
   right: 5vw;
   z-index: 100;
   display: block;
@@ -93,8 +97,8 @@ p {
     left: 25%;
     width: 50%;
     height: 3px;
-    background: hsla(210, 29%, 24%, 0.3);
-    border-radius: 10px;
+    background: white; /*color of the burger icon*/
+ /*   border-radius: 10px;
     overflow: hidden;
     transition: 0.5s;
 
@@ -145,8 +149,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1a1e23;
-  opacity: 0;
+  background: #477694 ; /*background of menu*/
+ /* opacity: 0;
   overflow-x: hidden;
   visibility: hidden;
   transition: 0.3s;
@@ -280,3 +284,4 @@ p {
     }
   }
 }
+*/

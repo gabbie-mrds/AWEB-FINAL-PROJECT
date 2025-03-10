@@ -1,5 +1,8 @@
-<nav class = "">
-    <div class="">
+<!--<nav class = "py-2 px-5 flex items-center bg-[#477694] sticky">
+    <br>
+    <br>
+    <img src = "bangketa-logo.png" class = "mr-4 w-20 h-20">
+    <p class = "lg:text-2xl md:text-lg text-xs text-white title">BANGKETA ESKWELA FOUNDATION</p>
         <input type="checkbox" id="burger-toggle">
         <label for="burger-toggle" class="burger-menu">
         <div class="line"></div>
@@ -8,22 +11,48 @@
         </label>
         <div class="menu">
             <div class="menu-inner">
-                <ul class="menu-nav">
-                <li class="menu-nav-item"><a class="menu-nav-link" href="#"><span>
-                        <div>Home</div>
+                <ul class="menu-nav  text-center">
+                <li class="menu-nav-item"><a class="menu-nav-link text-5xl text-white" href="#" routerLink = "/" routerLinkActive = "active"><span>
+                        <div class = "hover:text-[#A0C5DF]">HOME</div>
                     </span></a></li>
-                <li class="menu-nav-item"><a class="menu-nav-link" href="#"><span>
-                        <div>About</div>
+                <li class="menu-nav-item"><a class="menu-nav-link text-5xl text-white" href="#" routerLink = "/about" routerLinkActive = "active"><span>
+                        <div class = "pt-4 hover:text-[#A0C5DF]">ABOUT</div>
                     </span></a></li>
-                <li class="menu-nav-item"><a class="menu-nav-link" href="#"><span>
-                        <div>Service</div>
+                <li class="menu-nav-item"><a class="menu-nav-link text-5xl text-white" href="#" routerLink = "/services" routerLinkActive = "active"><span>
+                        <div class = "pt-4 hover:text-[#A0C5DF]">SERVICES</div>
                     </span></a></li>
-                <li class="menu-nav-item"><a class="menu-nav-link" href="#"><span>
-                        <div>Team</div>
+                <li class="menu-nav-item"><a class="menu-nav-link text-5xl text-white" href="#" routerLink = "/contact" routerLinkActive = "active"><span>
+                        <div class = "pt-4 hover:text-[#A0C5DF]">CONTACT</div>
+                    </span></a></li>
+                    <li class="menu-nav-item"><a class="menu-nav-link text-5xl text-white" href="#" routerLink = "/volunteer" routerLinkActive = "active"><span>
+                        <div class = "pt-4 hover:text-[#A0C5DF]">VOLUNTEER NOW!</div>
                     </span></a></li>
                 </ul>   
             </div>
         </div>
-    </div>
     
-</nav>
+    
+    </nav>-->
+
+    <header class="text-gray-600 body-font bg-[#477694]">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img src = "bangketa-logo.png" class = "mr-4 w-20 h-20">
+            <div class="lg:block hidden">
+                <span class = "text-2xl text-sm text-white title">BANGKETA ESKWELA FOUNDATION</span>
+            </div>
+            
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="lg:mr-5 mr-3 hover:text-[#A0C5DF] text-white lg:text-2xl md:text-lg text-md" routerLink = "/" routerLinkActive = "active">HOME</a>
+            <a class="lg:mr-5 mr-3 hover:text-[#A0C5DF] text-white lg:text-2xl md:text-lg text-md " routerLink = "/about" routerLinkActive = "active">ABOUT</a>
+            <a class="lg:mr-5 mr-3 hover:text-[#A0C5DF] text-white lg:text-2xl md:text-lg text-md" routerLink = "/services" routerLinkActive = "active">SERVICES</a>
+            <a class="lg:mr-5 mr-3 hover:text-[#A0C5DF] text-white lg:text-2xl md:text-lg text-md" routerLink = "/contact" routerLinkActive = "active">CONTACT</a>
+          </nav>
+          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-[#A0C5DF] rounded mt-4 md:mt-0 lg:text-xl md:text-lg text-md transform hover:scale-105 hover:shadow-lg rounded-full" routerLink = "/volunteer" routerLinkActive = "active">VOLUNTEER NOW!
+          </button>
+        </div>
+      </header>
+
+
+   
