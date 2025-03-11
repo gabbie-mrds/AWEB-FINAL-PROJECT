@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.title, li {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+.descrip {
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
+}

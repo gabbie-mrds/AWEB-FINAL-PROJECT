@@ -6,27 +6,27 @@
     
     <div class="relative z-10 flex flex-col justify-center items-center h-full text-center m-5">
       <h1 class="lg:text-6xl md:text-5xl text-4xl font-bold text-[#A0C5DF] leading-tight mb-2 title">EDUKASYON PARA SA KABATAANG PILIPINO</h1>
-      <p class="lg:text-lg md:text-lg sm:text-md text-gray-300 mb-8 lg:mx-40">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
-      <a href="#" class="bg-[#A0C5DF] text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white">VOLUNTEER NOW!</a>
+      <p class="lg:text-lg md:text-lg sm:text-md text-gray-300 mb-8 lg:mx-40 descrip">We  organize events where we teach the children who are deprived of the right  to education. Our programs aims to create a safe, accessible, and supportive platform to help leverage the learning environment of the children to ensure that no child is left behind in education.</p>
+      <a href="#" class="bg-[#A0C5DF] text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white" routerLink = "/volunteer" routerLinkActive = "active">VOLUNTEER NOW!</a>
     </div>
   </div>
 
   <!--FIRST BENTO BOX-->
   
-  <section class="mx-auto  max-w-[1920px] min-w-[280px] py-8 px-4 sm:px-8 md:px-10 lg:0px-20 ">
+  <section class="mx-auto  max-w-[1920px] min-w-[280px] py-8 px-4 sm:px-8 md:px-10 lg:px-20 ">
       <div
-        class="w-full rounded-[50px] sm:rounded-[60px] md:rounded-[70px] lg:rounded-[80px] bg-[#A0C5DF] flex flex-col lg:flex-row  items-center  py-6 sm:py-9 md:py-11 lg:py-14  px-2  sm:px-4 md:px-8 xl:px-16">
+        class="w-full rounded-[50px] sm:rounded-[60px] md:rounded-[70px] lg:rounded-[80px] bg-[#A0C5DF] flex flex-col lg:flex-row  items-center  py-10 sm:py-12 md:py-14 lg:py-14  px-2  sm:px-4 md:px-8 xl:px-16 ">
         <img class="w-full lg:w-1/2 xl:w-full max-w-[550px] lg:order-2" src="https://iili.io/2ysFUen.png" alt="">
         <div class="text-center md:text-left">
             <h1 class = "text-3xl font-bold title text-stone-900">ABOUT US</h1>
             <h1 class = "lg:text-6xl md:text-6xl text-5xl font-bold title pb-5 text-slate-900">Our Story</h1>
           
-          <p class="text-xl leading-[27px]  font-normal sm:text-[24px] mb-8 md:mb-12 mx-4">
-            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+          <p class="text-xl leading-[27px] text-gray-700 font-normal sm:text-[24px] mb-8 md:mb-12 mx-4 descrip">
+            Bangketa Eskwela is a Non-Government, Non-Profit Organization established by Dara Mae H. Tuazon in 2017, and registered with the Securities and Exchange Commission in 2018. Its mission is to develop concrete, efficient and effective programs for street children, out-of-school youth and indigenous children and see them with transformed lives, having a passion for education, and committed to being agents of social change and nation-building through volunteerism
     
           </p>
-          <div class="mx-5 flex">
-            <a href="#" class="bg-white text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] flex items-center">LEARN MORE
+          <div class="mx-5 flex lg:float-left md:justify-center justify-center">
+            <a href="#" class="bg-white text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] flex items-center" routerLink = "/about" routerLinkActive = "active">LEARN MORE
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                   </svg>
@@ -43,77 +43,31 @@
         <h1 class = "text-3xl font-bold title text-stone-900">OUR SERVICES</h1>
         <h1 class = "lg:text-6xl md:text-6xl text-5xl font-bold title pb-5 text-slate-900">What We Do</h1>
     </div>
-
-
-    <div class="px-2 py-20 w-full flex justify-center">
-        <div class="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
-            <div class="lg:w-1/2">
-                <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
-                    style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97')">
+    <div class="mx-5 ">
+        <div class="px-2 py-[30px] w-full flex justify-center transform hover:scale-105" *ngFor = "let item of cards">
+            <div class="bg-[#A0C5DF] lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
+                <div class="lg:w-1/2">
+                    <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
+                        style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97')">
+                    </div>
                 </div>
-            </div>
-            <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
-                <h2 class="text-3xl text-gray-800 font-bold">
-                    Promoting Sustainable Lifestyle Choices
-                    <span class="text-indigo-600">Choices</span>
-                </h2>
-                <p class="mt-4 text-gray-600">
-                    The "Eco-Tracker" project aims to create a web-based platform that encourages individuals to adopt
-                    sustainable lifestyle choices and actively contribute to environmental conservation. The platform will
-                    provide users with personalized tracking, education, and engagement features to empower them to make
-                    eco-friendly decisions in various aspects of their lives.
-                </p>
+                <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
+                    <h2 class="text-3xl text-gray-800 font-bold title">
+                        {{ item.title }}
+                    </h2>
+                    <p class="mt-4 text-gray-700 descrip">
+                        {{ item.descrip }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-  
-    <div class="px-2 py-20 w-full flex justify-center">
-        <div class="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
-            <div class="lg:w-1/2">
-                <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
-                    style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97')">
-                </div>
-            </div>
-            <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
-                <h2 class="text-3xl text-gray-800 font-bold">
-                    Promoting Sustainable Lifestyle Choices
-                    <span class="text-indigo-600">Choices</span>
-                </h2>
-                <p class="mt-4 text-gray-600">
-                    The "Eco-Tracker" project aims to create a web-based platform that encourages individuals to adopt
-                    sustainable lifestyle choices and actively contribute to environmental conservation. The platform will
-                    provide users with personalized tracking, education, and engagement features to empower them to make
-                    eco-friendly decisions in various aspects of their lives.
-                </p>
-            </div>
-        </div>
-    </div>
+        
 
-    <div class="px-2 pt-20 w-full flex justify-center">
-        <div class="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
-            <div class="lg:w-1/2">
-                <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
-                    style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97')">
-                </div>
-            </div>
-            <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
-                <h2 class="text-3xl text-gray-800 font-bold">
-                    Promoting Sustainable Lifestyle Choices
-                    <span class="text-indigo-600">Choices</span>
-                </h2>
-                <p class="mt-4 text-gray-600">
-                    The "Eco-Tracker" project aims to create a web-based platform that encourages individuals to adopt
-                    sustainable lifestyle choices and actively contribute to environmental conservation. The platform will
-                    provide users with personalized tracking, education, and engagement features to empower them to make
-                    eco-friendly decisions in various aspects of their lives.
-                </p>
-            </div>
-        </div>
-    </div>
 
     <!--BUTTON-->
     <div class="my-[70px] flex justify-center">
-        <a href="#" class="bg-[#A0C5DF] text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] flex items-center">SEE MORE
+        <a href="#" class="bg-[#A0C5DF] text-slate-900  py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] flex items-center" routerLink = "/services" routerLinkActive = "active">SEE MORE
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ml-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
@@ -121,14 +75,7 @@
         </a>
       </div>
 
-    <div class="bg-[#477694]">
-        <div class="">
 
-        </div>
-        <div class="">
-
-        </div>
-    </div>
 
 
 <div class="w-full bg-[#477694] flex flex-col lg:flex-row  items-center py-14 sm:py-9 md:py-11 lg:py-14  px-2  sm:px-4 md:px-8 xl:px-16">
@@ -138,10 +85,18 @@
     <div class="text-center md:text-left">
         <br>
     
-    <p class="text-xl leading-[27px]  font-normal sm:text-[24px] mb-8 md:mb-12 mx-10">
-        Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
-
+    <p class="text-xl mb-8 md:mb-12 mx-10 descrip text-white lg:my-10 md:my-8 my-5 text-center ">
+        If you have any queries or you wish to donate, kindly send us a message!
     </p>
+
+    <div class="my-[50px] flex justify-center">
+        <a href="#" class="bg-white text-slate-900  py-2 px-20 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#A0C5DF] flex items-center" routerLink = "/services" routerLinkActive = "active">SEE MORE
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+              </svg>
+              
+        </a>
+      </div>
 
     </div>
 </div>
