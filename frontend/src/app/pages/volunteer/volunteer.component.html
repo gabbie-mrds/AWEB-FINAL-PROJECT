@@ -7,13 +7,13 @@
 <div class="flex justify-center my-10 px-4">
     <div class="w-full max-w-xl bg-[#A0C5DF] py-14 md:px-20 px-10 rounded-3xl shadow-md">
 
-        <h2 class="lg:text-4xl md:text-3xl text-xl font-bold text-center mb-6">WISH TO BE PART OF OUR TEAM?</h2>
-        <p class="text-center text-lg text-black font-bold mb-6">Kindly fill out the form</p>
+        <h2 class="lg:text-4xl md:text-3xl text-xl font-bold text-center mb-6 title">WISH TO BE PART OF OUR TEAM?</h2>
+        <p class="text-center text-lg text-black font-bold mb-6 title">Kindly fill out the form</p>
 
         <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Name</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Name</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput formControlName="name">
                     <mat-error *ngIf="formData.get('name')?.hasError('required')">
@@ -23,7 +23,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Email</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Email</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput type="email" formControlName="email">
                     <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Birth Date</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Birth Date</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput [matDatepicker]="picker" formControlName="birthDate">
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Work / Course</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Work / Course</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput formControlName="workCourse">
                     <mat-error *ngIf="formData.get('workCourse')?.hasError('required')">
@@ -55,7 +55,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Company / School</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Company / School</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput formControlName="companySchool">
                     <mat-error *ngIf="formData.get('companySchool')?.hasError('required')">
@@ -65,7 +65,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Phone Number</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Phone Number</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput type="text" formControlName="phoneNum">
                     <mat-error *ngIf="formData.get('phoneNum')?.hasError('required')">
@@ -75,7 +75,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Facebook Link</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Facebook Link</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput type="url" formControlName="facebook">
                     <mat-error *ngIf="formData.get('facebook')?.hasError('required')">
@@ -85,7 +85,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Home Address</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Home Address</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput formControlName="address">
                     <mat-error *ngIf="formData.get('address')?.hasError('required')">
@@ -95,7 +95,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Chapter</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Chapter</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput formControlName="chapter">
                     <mat-error *ngIf="formData.get('chapter')?.hasError('required')">
@@ -105,7 +105,7 @@
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase">Committee You Are Interested In</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Committee You Are Interested In</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <mat-select formControlName="committee">
                         <mat-option value="Food Committee">Food Committee</mat-option>
@@ -121,7 +121,7 @@
             </div>
 
             <div class="mb-6">
-                <label class="block text-black font-medium mb-1 uppercase">Alternative Committee</label>
+                <label class="block text-black font-medium mb-1 uppercase title">Alternative Committee</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <mat-select formControlName="altCommittee">
                         <mat-option value="Food Committee">Food Committee</mat-option>
@@ -136,7 +136,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center title">
                 <button mat-raised-button color="primary" class="w-full md:w-1/2" type="submit"
                     [disabled]="!formData.valid">SUBMIT</button>
             </div>
