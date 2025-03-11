@@ -1,1 +1,161 @@
-<p>volunteer works!</p>
+<div class="relative w-full h-40 md:h-60 bg-cover bg-center">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 class="text-white text-3xl md:text-5xl font-bold title">VOLUNTEER</h1>
+    </div>
+</div>
+
+<div class="flex justify-center my-10 px-4">
+    <div class="w-full max-w-xl bg-[#A0C5DF] py-14 md:px-20 px-10 rounded-3xl shadow-md">
+
+        <h2 class="lg:text-4xl md:text-3xl text-xl font-bold text-center mb-6 title">WISH TO BE PART OF OUR TEAM?</h2>
+        <p class="text-center text-lg text-black font-bold mb-6 title">Kindly fill out the form</p>
+
+        <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Name</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="formData.get('name')?.hasError('required')">
+                        Name is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Email</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput type="email" formControlName="email">
+                    <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
+                        Email is required and must be a valid email.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Birth Date</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput [matDatepicker]="picker" formControlName="birthDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="formData.get('birthDate')?.hasError('required')">
+                        Birth date is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Work / Course</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput formControlName="workCourse">
+                    <mat-error *ngIf="formData.get('workCourse')?.hasError('required')">
+                        Work / Course is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Company / School</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput formControlName="companySchool">
+                    <mat-error *ngIf="formData.get('companySchool')?.hasError('required')">
+                        Company / School is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Phone Number</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput type="text" formControlName="phoneNum">
+                    <mat-error *ngIf="formData.get('phoneNum')?.hasError('required')">
+                        Phone Number is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Facebook Link</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput type="url" formControlName="facebook">
+                    <mat-error *ngIf="formData.get('facebook')?.hasError('required')">
+                        Facebook Link is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Home Address</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput formControlName="address">
+                    <mat-error *ngIf="formData.get('address')?.hasError('required')">
+                        Address is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Chapter</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <input matInput formControlName="chapter">
+                    <mat-error *ngIf="formData.get('chapter')?.hasError('required')">
+                        Chapter is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-2">
+                <label class="block text-black font-medium mb-1 uppercase title">Committee You Are Interested In</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <mat-select formControlName="committee">
+                        <mat-option value="Food Committee">Food Committee</mat-option>
+                        <mat-option value="Teaching Committee">Teaching Committee</mat-option>
+                        <mat-option value="Technical Operations Committee">Technical Operations Committee</mat-option>
+                        <mat-option value="Creative Visuals and Media Committee">Creative Visuals and Media
+                            Committee</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formData.get('committee')?.hasError('required')">
+                        Committee is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-black font-medium mb-1 uppercase title">Alternative Committee</label>
+                <mat-form-field appearance="outline" class="w-full custom-input">
+                    <mat-select formControlName="altCommittee">
+                        <mat-option value="Food Committee">Food Committee</mat-option>
+                        <mat-option value="Teaching Committee">Teaching Committee</mat-option>
+                        <mat-option value="Technical Operations Committee">Technical Operations Committee</mat-option>
+                        <mat-option value="Creative Visuals and Media Committee">Creative Visuals and Media
+                            Committee</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formData.get('altCommittee')?.hasError('required')">
+                        Alternative Committee is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex justify-center title">
+                <button mat-raised-button color="primary" class="w-full md:w-1/2" type="submit"
+                    [disabled]="!formData.valid">SUBMIT</button>
+            </div>
+        </form>
+
+        <!-- PANG TEST LANG -->
+        <p *ngIf="submitted">
+            You have entered: <br>
+            Name: {{ name }} <br>
+            Email: {{ email }} <br>
+            Birth Date: {{ birthDate | date:'shortDate' }} <br>
+            Work/Course: {{ workCourse }} <br>
+            Company/School: {{ companySchool }} <br>
+            Phone: {{ phoneNum }} <br>
+            Facebook: {{ facebook }} <br>
+            Address: {{ address }} <br>
+            Chapter: {{ chapter }} <br>
+            Committee: {{ committee }} <br>
+            Alt Committee: {{ altCommittee }}
+        </p>
+    </div>
+</div>
