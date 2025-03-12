@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import * as AOS from 'aos';
+ import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-services',
@@ -10,6 +12,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './services.component.css'
 })
 export class ServicesComponent {
+
+  ngOnInit(){
+      AOS.init();
+    }
+  
 
   cards = [
     {

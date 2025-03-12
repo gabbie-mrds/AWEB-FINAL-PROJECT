@@ -8,6 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import * as AOS from 'aos';
+ import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-volunteer',
@@ -30,6 +32,10 @@ export class VolunteerComponent {
   altCommittee: string = '';
 
   submitted = false;
+
+  ngOnInit(){
+      AOS.init();
+    }
 
   formData: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
