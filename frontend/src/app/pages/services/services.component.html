@@ -1,25 +1,22 @@
 <div class="relative h-40 md:h-60 bg-cover bg-center" style="background-image: url(page-hero.png); ">
     <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-[#477694] lg:text-6xl md:text-5xl text-4xl font-bold title text-center">OUR SERVICES</h1>
+        <h1 class="text-[#477694] lg:text-6xl md:text-5xl text-4xl font-bold title text-center" data-aos="fade-up">OUR SERVICES</h1>
     </div>
 </div>
 <br>
-<div class="relative h-30 md:h-60 bg-cover bg-center">
-    <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-[#477694] lg:text-5xl md:text-5xl text-4xl font-bold title text-center px-8 py-25">
-            BEF's Target Beneficiaries
-        </h1>
-    </div>
-</div>
+
+<h1 class="text-[#477694] lg:text-5xl md:text-5xl text-4xl font-bold title text-center px-8 py-25 pt-10" data-aos="fade-up">
+    BEF'S TARGET BENEFICIARIES
+</h1>
 
 <br>
 
-<div class="mx-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="mx-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" data-aos="fade-up">
     <div *ngFor="let beneficiary of beneficiaries" class="bg-[#A0C5DF] shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition">
         <div class="h-48 bg-cover bg-center" [style.backgroundImage]="'url(' + beneficiary.img + ')'"></div>
         <div class="p-6 text-center">
             <h2 class="text-2xl font-bold text-gray-800">{{ beneficiary.title }}</h2>
-            <p class="mt-2 text-gray-700">{{ beneficiary.descrip }}</p>
+            <p class="mt-2 text-gray-700 descrip">{{ beneficiary.descrip }}</p>
         </div>
     </div>
 </div>
@@ -27,8 +24,8 @@
 <br>
 <br>
 
-<div class="mx-5">
-    <div class="px-2 py-[30px] w-full flex justify-center transform hover:scale-105 transition" *ngFor="let item of cards; let i = index">
+<div class="">
+    <div class="px-2 py-[30px] w-full flex justify-center transform hover:scale-105 transition" *ngFor="let item of cards; let i = index" data-aos="fade-up">
         <div class="bg-[#A0C5DF] lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg" [ngClass]="{'lg:flex-row-reverse': i % 2 !== 0}">
             <div class="lg:w-1/2">
                 <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
@@ -44,5 +41,6 @@
                 </p>
             </div>
         </div>
-</div>
     </div>
+    <br><br>
+</div>

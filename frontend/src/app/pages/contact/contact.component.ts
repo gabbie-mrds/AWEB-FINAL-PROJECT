@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import * as AOS from 'aos';
+ import 'aos/dist/aos.css';
+
 
 @Component({
   selector: 'app-contact',
@@ -8,5 +11,9 @@ import { Component } from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
+
+  ngOnInit(){
+      AOS.init();
+    }
 
 }
