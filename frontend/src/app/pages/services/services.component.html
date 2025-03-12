@@ -1,11 +1,11 @@
 <div class="relative h-40 md:h-60 bg-cover bg-center" style="background-image: url(page-hero.png); ">
     <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-[#477694] lg:text-6xl md:text-5xl text-4xl font-bold title text-center">OUR SERVICES</h1>
+        <h1 class="text-[#477694] lg:text-6xl md:text-5xl text-4xl font-bold title text-center" data-aos="fade-up">OUR SERVICES</h1>
     </div>
 </div>
 <br>
 
-<h1 class="text-[#477694] lg:text-5xl md:text-5xl text-4xl font-bold title text-center px-8 py-25 pt-10">
+<h1 class="text-[#477694] lg:text-5xl md:text-5xl text-4xl font-bold title text-center px-8 py-25 pt-10" data-aos="fade-up">
     BEF'S TARGET BENEFICIARIES
 </h1>
 
@@ -16,7 +16,7 @@
         <div class="h-48 bg-cover bg-center" [style.backgroundImage]="'url(' + beneficiary.img + ')'"></div>
         <div class="p-6 text-center">
             <h2 class="text-2xl font-bold text-gray-800">{{ beneficiary.title }}</h2>
-            <p class="mt-2 text-gray-700">{{ beneficiary.descrip }}</p>
+            <p class="mt-2 text-gray-700 descrip">{{ beneficiary.descrip }}</p>
         </div>
     </div>
 </div>
