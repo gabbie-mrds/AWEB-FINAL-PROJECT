@@ -4,6 +4,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
+import { AdminComponent } from './admin/admin/admin.component';
+
 
 export const routes: Routes = [
 
@@ -12,5 +14,6 @@ export const routes: Routes = [
     {path: 'contact', title: "BEF | CONTACT", component: ContactComponent},
     {path: 'services', title: "BEF | SERVICES", component: ServicesComponent},
     {path: 'volunteer', title: "BEF | VOLUNTEER", component: VolunteerComponent},
+    {path: 'admin', title: "BEF | ADMIN", component: AdminComponent }
     
 ];
