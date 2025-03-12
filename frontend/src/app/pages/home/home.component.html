@@ -43,25 +43,25 @@
         <h1 class = "text-3xl font-bold title text-stone-900">OUR SERVICES</h1>
         <h1 class = "lg:text-6xl md:text-6xl text-5xl font-bold title pb-5 text-slate-900">What We Do</h1>
     </div>
-    <div class="mx-5 ">
-        <div class="px-2 py-[30px] w-full flex justify-center transform hover:scale-105" *ngFor = "let item of cards">
-            <div class="bg-[#A0C5DF] lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
-                <div class="lg:w-1/2">
-                    <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
-                        style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97')">
-                    </div>
-                </div>
-                <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
-                    <h2 class="text-3xl text-gray-800 font-bold title">
-                        {{ item.title }}
-                    </h2>
-                    <p class="mt-4 text-gray-700 descrip">
-                        {{ item.descrip }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+  
+    <div class="mx-5">
+      <div class="px-2 py-[30px] w-full flex justify-center transform hover:scale-105 transition" *ngFor="let item of cards; let i = index">
+          <div class="bg-[#A0C5DF] lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg" [ngClass]="{'lg:flex-row-reverse': i % 2 !== 0}">
+              <div class="lg:w-1/2">
+                  <div class="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
+                      [style.backgroundImage]="'url(' + item.img + ')'">
+                  </div>
+              </div>
+              <div class="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
+                  <h2 class="text-3xl text-gray-800 font-bold title">
+                      {{ item.title }}
+                  </h2>
+                  <p class="mt-4 text-gray-700 descrip">
+                      {{ item.descrip }}
+                  </p>
+              </div>
+          </div>
+  </div>
         
 
 

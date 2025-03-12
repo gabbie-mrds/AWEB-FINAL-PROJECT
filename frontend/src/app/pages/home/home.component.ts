@@ -13,19 +13,19 @@ export class HomeComponent {
 
   cards = [
     {
-      //img: "",
-      title: "ALTERNATIVE EDUCATIONAL SESSION",
-      descrip:"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
+      img: "alternative-learning.jpg",
+      title: "Alternative Educational Session",
+      descrip: "Providing quality education to underprivileged children through alternative learning sessions, ensuring they receive proper guidance and academic support despite their circumstances."
     },
     {
-      //img: "",
-      title: "PALAWAN CHAPTER",
-      descrip:"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
+      img: "palawan-chapter.jpg",
+      title: "Palawan Chapter",
+      descrip: "Expanding our reach to Palawan, this chapter focuses on community engagement, educational initiatives, and social welfare programs to support local children and families in need."
     },
     {
-      //img: "",
-      title: "DRIVE CARAVAN",
-      descrip:"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
+      img: "food-caravan.jpg",
+      title: "Drive Caravan",
+      descrip: "A mobile outreach program delivering essential supplies, education, and healthcare services to remote and disadvantaged communities, bringing hope and support to those in need."
     },
   ]
 
