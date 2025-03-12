@@ -16,6 +16,17 @@
     outline: none;
   }
 
+  .select-input{
+    background-color: white !important;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    outline: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   ::ng-deep .custom-input .mat-mdc-text-field-wrapper:focus-within {
     --ring-color: rgba(71, 118, 148, 1);
     box-shadow: 0 0 0 3px var(--ring-color) !important;

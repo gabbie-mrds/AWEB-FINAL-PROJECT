@@ -11,29 +11,35 @@
         <h2 class="lg:text-5xl md:text-4xl text-3xl font-bold text-center mb-6 title text-slate-900">WISH TO BE PART OF OUR TEAM?</h2>
         <p class="text-center text-lg text-black font-bold mb-6 title text-slate-900">KINDLY FILL OUT THE FORM</p>
 
-        <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+        <form [formGroup]="formData" (ngSubmit)="onClickSubmit()">
 
             <div class="mb-2">
                 <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Name</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput formControlName="name">
-                    <mat-error *ngIf="formData.get('name')?.hasError('required')">
-                        Name is required.
-                    </mat-error>
+                  <input matInput formControlName="name">
+                  <mat-error *ngIf="formData.get('name')?.hasError('required')">
+                    Name is required.
+                  </mat-error>
+                  <mat-error *ngIf="formData.get('name')?.hasError('maxlength')">
+                    Name must not exceed 100 characters.
+                  </mat-error>
                 </mat-form-field>
             </div>
 
             <div class="mb-2">
                 <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Email</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput type="email" formControlName="email">
-                    <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
-                        Email is required and must be a valid email.
-                    </mat-error>
+                  <input matInput type="email" formControlName="email">
+                  <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
+                      Email is required and must be a valid email.
+                  </mat-error>
+                  <mat-error *ngIf="formData.get('email')?.hasError('maxlength')">
+                    Email must not exceed 100 characters.
+                  </mat-error>
                 </mat-form-field>
             </div>
 
-            <div class="mb-2">
+            <!-- <div class="mb-2">
                 <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Birth Date</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
                     <input matInput [matDatepicker]="picker" formControlName="birthDate">
@@ -43,7 +49,25 @@
                         Birth date is required.
                     </mat-error>
                 </mat-form-field>
-            </div>
+            </div> -->
+
+            <div class="mb-2">
+              <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Birth Date</label>
+                <input formControlName="birthDate" type="date" class="w-full select-input">
+              <div *ngIf="formData.controls['birthDate'].touched && formData.controls['birthDate'].invalid" class="px-4">
+                <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">Birth Date is required.</p>
+              </div>
+              <div *ngIf="formData.get('birthDate')?.touched && formData.get('birthDate')?.hasError('minAge')" class="px-4">
+                <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">
+                  You must be at least 17 years old.
+                </p>
+              </div>
+              <div *ngIf="formData.get('birthDate')?.touched && formData.get('birthDate')?.hasError('futureDate')" class="px-4">
+                <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">
+                  Birth Date cannot be in the future.
+                </p>
+              </div>
+          </div>
 
             <div class="mb-2">
                 <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Work / Course</label>
@@ -51,6 +75,9 @@
                     <input matInput formControlName="workCourse">
                     <mat-error *ngIf="formData.get('workCourse')?.hasError('required')">
                         Work / Course is required.
+                    </mat-error>
+                    <mat-error *ngIf="formData.get('workCourse')?.hasError('maxlength')">
+                      Field must not exceed 100 characters.
                     </mat-error>
                 </mat-form-field>
             </div>
@@ -62,102 +89,101 @@
                     <mat-error *ngIf="formData.get('companySchool')?.hasError('required')">
                         Company / School is required.
                     </mat-error>
-                </mat-form-field>
-            </div>
-
-            <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Phone Number</label>
-                <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput type="text" formControlName="phoneNum">
-                    <mat-error *ngIf="formData.get('phoneNum')?.hasError('required')">
-                        Phone Number is required.
+                    <mat-error *ngIf="formData.get('companySchool')?.hasError('maxlength')">
+                      Field must not exceed 100 characters.
                     </mat-error>
                 </mat-form-field>
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Facebook Link</label>
+                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Phone Number (09xx)</label>
                 <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput type="url" formControlName="facebook">
-                    <mat-error *ngIf="formData.get('facebook')?.hasError('required')">
-                        Facebook Link is required.
-                    </mat-error>
+                  <input matInput type="text" formControlName="phoneNum">
+                  <mat-error *ngIf="formData.controls['phoneNum'].hasError('required') && formData.controls['phoneNum'].touched">
+                    Phone Number is required.
+                  </mat-error>
+                  <mat-error *ngIf="formData.controls['phoneNum'].hasError('pattern') && formData.controls['phoneNum'].touched">
+                    Phone Number must start with '09' and be exactly 11 digits.
+                  </mat-error>
                 </mat-form-field>
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Home Address</label>
-                <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput formControlName="address">
-                    <mat-error *ngIf="formData.get('address')?.hasError('required')">
-                        Address is required.
-                    </mat-error>
-                </mat-form-field>
+              <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Facebook Link</label>
+              <mat-form-field appearance="outline" class="w-full custom-input">
+                  <input matInput type="url" formControlName="facebook">
+                  <mat-error *ngIf="formData.get('facebook')?.hasError('required')">
+                      Facebook Link is required.
+                  </mat-error>
+                  <mat-error *ngIf="formData.get('facebook')?.hasError('maxlength')">
+                    Facebook Link must not exceed 100 characters.
+                  </mat-error>
+              </mat-form-field>
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Chapter</label>
-                <mat-form-field appearance="outline" class="w-full custom-input">
-                    <input matInput formControlName="chapter">
-                    <mat-error *ngIf="formData.get('chapter')?.hasError('required')">
-                        Chapter is required.
-                    </mat-error>
-                </mat-form-field>
+              <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Home Address</label>
+              <mat-form-field appearance="outline" class="w-full custom-input">
+                <input matInput formControlName="address">
+                <mat-error *ngIf="formData.get('address')?.hasError('required')">
+                    Address is required.
+                </mat-error>
+                <mat-error *ngIf="formData.get('address')?.hasError('maxlength')">
+                  Address must not exceed 200 characters.
+                </mat-error>
+              </mat-form-field>
             </div>
 
             <div class="mb-2">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Committee You Are Interested In</label>
-                <mat-form-field appearance="outline" class="w-full custom-input">
-                    <mat-select formControlName="committee">
-                        <mat-option value="Food Committee">Food Committee</mat-option>
-                        <mat-option value="Teaching Committee">Teaching Committee</mat-option>
-                        <mat-option value="Technical Operations Committee">Technical Operations Committee</mat-option>
-                        <mat-option value="Creative Visuals and Media Committee">Creative Visuals and Media
-                            Committee</mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="formData.get('committee')?.hasError('required')">
-                        Committee is required.
-                    </mat-error>
-                </mat-form-field>
+              <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Chapter</label>
+              <select formControlName="chapter" class="w-full select-input">
+                <option value="Pampanga">Pampanga Chapter</option>
+                <option value="Palawan">Palawan Chapter</option>
+              </select>
+              <div *ngIf="formData.controls['chapter'].touched && formData.controls['chapter'].invalid" class="px-4">
+                <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">Chapter is required.</p>
+              </div>
             </div>
 
-            <div class="mb-6">
-                <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Alternative Committee</label>
-                <mat-form-field appearance="outline" class="w-full custom-input">
-                    <mat-select formControlName="altCommittee">
-                        <mat-option value="Food Committee">Food Committee</mat-option>
-                        <mat-option value="Teaching Committee">Teaching Committee</mat-option>
-                        <mat-option value="Technical Operations Committee">Technical Operations Committee</mat-option>
-                        <mat-option value="Creative Visuals and Media Committee">Creative Visuals and Media
-                            Committee</mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="formData.get('altCommittee')?.hasError('required')">
-                        Alternative Committee is required.
-                    </mat-error>
-                </mat-form-field>
+          <div class="mb-2">
+            <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Committee You Are Interested In</label>
+            <select formControlName="committee" class="w-full select-input">
+              <option value="Food Committee">Food Committee</option>
+              <option value="Teaching Committee">Teaching Committee</option>
+              <option value="Technical Operations Committee">Technical Operations Committee</option>
+              <option value="Creative Visuals and Media Committee">Creative Visuals and Media
+                  Committee</option>
+            </select>
+            <div *ngIf="formData.controls['committee'].touched && formData.controls['committee'].invalid" class="px-4">
+              <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">Committee is required.</p>
             </div>
+          </div>
 
-            <div class="flex justify-center title">
-                <!-- <button mat-raised-button color="primary" class="w-full md:w-1/2" type="submit"
-                    [disabled]="!formData.valid">SUBMIT</button> -->
-              <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2" [disabled]="!formData.valid">SUBMIT</button>
+          <div class="mb-6">
+            <label class="block text-black font-medium mb-1 uppercase title text-slate-900">Alternative Committee</label>
+            <select formControlName="altCommittee" class="w-full select-input">
+                <option value="Food Committee">Food Committee</option>
+                <option value="Teaching Committee">Teaching Committee</option>
+                <option value="Technical Operations Committee">Technical Operations Committee</option>
+                <option value="Creative Visuals and Media Committee">Creative Visuals and Media Committee</option>
+            </select>
+            <div *ngIf="formData.controls['altCommittee'].touched && formData.controls['altCommittee'].invalid" class="px-4">
+              <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">Alternative Committee is required.</p>
             </div>
+            <div *ngIf="formData.errors?.['sameCommittee']" class="px-4">
+              <p class="mat-mdc-form-field-error text-xs text-fam font-[Roboto]">
+                Committee and Alternative Committee cannot be the same.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex justify-center title gap-3">
+            <button (click)="resetForm()" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2">RESET</button> <!-- STYLE ACCORDINGLY FRONTENDERS -->
+            <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2 cursor-pointer" [disabled]="!formData.valid">SUBMIT</button>
+          </div>
+
+          <p *ngIf="success" class="text-green-500 mt-2">{{ success }}</p> <!--  STYLE ACCORDINGLY NALANG -->
+          <p *ngIf="error" class="text-red-500 mt-2">{{ error }}</p> <!--  STYLE ACCORDINGLY NALANG -->
         </form>
-
-        <!-- PANG TEST LANG -->
-        <p *ngIf="submitted">
-            You have entered: <br>
-            Name: {{ name }} <br>
-            Email: {{ email }} <br>
-            Birth Date: {{ birthDate | date:'shortDate' }} <br>
-            Work/Course: {{ workCourse }} <br>
-            Company/School: {{ companySchool }} <br>
-            Phone: {{ phoneNum }} <br>
-            Facebook: {{ facebook }} <br>
-            Address: {{ address }} <br>
-            Chapter: {{ chapter }} <br>
-            Committee: {{ committee }} <br>
-            Alt Committee: {{ altCommittee }}
-        </p>
     </div>
 </div>

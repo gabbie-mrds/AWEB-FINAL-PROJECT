@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 const CONNECTION_STRING = "mongodb+srv://admin:adminbangketaeskwela@cluster0.rg07k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const DATABASENAME = "MyDb";
+// const DATABASENAME = "MyDb";
 
 // let database = null;
 

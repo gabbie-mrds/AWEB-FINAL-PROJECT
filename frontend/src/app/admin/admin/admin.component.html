@@ -9,143 +9,62 @@
 <br>
 
 <h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center">MESSAGES</h1>
+<div *ngIf="loading" class="text-gray-500 flex justify-center">Loading messages...</div>
+<div *ngIf="contactMessage" class="text-red-500 flex justify-center">{{ contactMessage }}</div>
+<div *ngIf="data.contacts.length === 0 && !loading" class="text-gray-500">No messages found.</div>
 <br>
 
-<div class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
+<div *ngIf="data.contacts.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
 
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name: </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Message</p>
-        <br>
-        <div class="flex justify-center">
-            <a href="#" class="bg-[red] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip" >DELETE</a>
-        </div>
+  <div *ngFor="let contact of data.contacts" class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
+    <p class = " text-gray-700 descrip">Name: {{ contact.name }}</p>
+    <p class = " text-gray-700 descrip">Email: {{ contact.email }}</p>
+    <p class = " text-gray-700 descrip">Message: {{ contact.message }}</p>
+    <p class = " text-gray-700 descrip">Date Added: {{ contact.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8'}}</p>
+    <br>
+    <div class="flex justify-center">
+      <a (click)="deleteContact(contact.cid)" class="bg-red-400 text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip cursor-pointer" >DELETE</a>
     </div>
-
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name: </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Message</p>
-        <br>
-        <div class="flex justify-center">
-            <a href="#" class="bg-[red] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip" >DELETE</a>
-        </div>
-    </div>
-
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name: </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Message</p>
-        <br>
-        <div class="flex justify-center">
-            <a href="#" class="bg-[red] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip" >DELETE</a>
-        </div>
-    </div>
+  </div>
 
 </div>
 <br><br>
+
 <h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center">VOLUNTEERS</h1>
+<div *ngIf="loading" class="text-gray-500 flex justify-center">Loading messages...</div>
+<div *ngIf="volunteerMessage" class="text-red-500 flex justify-center">{{ volunteerMessage }}</div>
+<div *ngIf="data.volunteers.length === 0 && !loading" class="text-gray-500">No volunteers found.</div>
 <br>
 
-<div class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
+<div *ngIf="data.volunteers.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
 
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Birthdate</p>
-        <p class = " text-gray-700 descrip">Work/Course</p>
-        <p class = " text-gray-700 descrip">Company/School</p>
-        <p class = " text-gray-700 descrip">Phone Number</p>
-        <p class = " text-gray-700 descrip">Facebook Link</p>
-        <p class = " text-gray-700 descrip">Home Address</p>
-        <p class = " text-gray-700 descrip">Chapter</p>
-        <p class = " text-gray-700 descrip">Committee</p>
-        <p class = " text-gray-700 descrip">ALT Committee</p>
-        <p class = " text-gray-700 descrip">Status: PENDING</p>
+    <div *ngFor="let volunteer of data.volunteers" class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
+        <p class = " text-gray-700 descrip">Name: {{ volunteer.name }} </p>
+        <p class = " text-gray-700 descrip">Email: {{ volunteer.email }}</p>
+        <p class = " text-gray-700 descrip">Birthdate: {{ volunteer.birthDate.split('T')[0] }}</p>
+        <p class = " text-gray-700 descrip">Work/Course: {{ volunteer.workCourse }}</p>
+        <p class = " text-gray-700 descrip">Company/School: {{ volunteer.companySchool }}</p>
+        <p class = " text-gray-700 descrip">Phone Number: {{ volunteer.phoneNum }}</p>
+        <p class = " text-gray-700 descrip">Facebook Link: {{ volunteer.facebook }}</p>
+        <p class = " text-gray-700 descrip">Home Address: {{ volunteer.address }}</p>
+        <p class = " text-gray-700 descrip">Chapter: {{ volunteer.chapter }}</p>
+        <p class = " text-gray-700 descrip">Committee: {{ volunteer.committee }}</p>
+        <p class = " text-gray-700 descrip">ALT Committee: {{ volunteer.altCommittee }}</p>
+        <p class = " text-gray-700 descrip">Status: {{ volunteer.status }}</p>
+        <p class = " text-gray-700 descrip">Date Added: {{ volunteer.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8' }}</p>
         <br>
         
         <form class="max-w-sm mx-auto">
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">STATUS</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-700 block w-full p-2.5 ">
-            <option value="US" selected>PENDING</option>
-            <option value="CA">APPROVED</option>
-            <option value="FR">DENIED</option>
-            </select>
+          <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">STATUS</label>
+          <select [id]="'status-' + volunteer.vid" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-700 block w-full p-2.5 ">
+            <option value="Pending" selected [selected]="volunteer.status === 'Pending'">PENDING</option>
+            <option value="Approved" [selected]="volunteer.status === 'Approved'">APPROVED</option>
+            <option value="Denied" [selected]="volunteer.status === 'Denied'">DENIED</option>
+          </select>
         </form>
         <br>
         <div class="flex justify-center">
-            <a href="#" class="bg-[white] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] descrip" >SAVE CHANGES</a>
-        </div>
-        
-  
-        <!--<div class="flex justify-center">
-            <a href="#" class="bg-[red] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip" >DELETE</a>
-        </div>-->
-    </div>
-
-
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Birthdate</p>
-        <p class = " text-gray-700 descrip">Work/Course</p>
-        <p class = " text-gray-700 descrip">Company/School</p>
-        <p class = " text-gray-700 descrip">Phone Number</p>
-        <p class = " text-gray-700 descrip">Facebook Link</p>
-        <p class = " text-gray-700 descrip">Home Address</p>
-        <p class = " text-gray-700 descrip">Chapter</p>
-        <p class = " text-gray-700 descrip">Committee</p>
-        <p class = " text-gray-700 descrip">ALT Committee</p>
-        <p class = " text-gray-700 descrip">Status: PENDING</p>
-        <br>
-        
-        <form class="max-w-sm mx-auto">
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">STATUS</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-700 block w-full p-2.5 ">
-            <option value="US" selected>PENDING</option>
-            <option value="CA">APPROVED</option>
-            <option value="FR">DENIED</option>
-            </select>
-        </form>
-        <br>
-        <div class="flex justify-center">
-            <a href="#" class="bg-[white] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] descrip" >SAVE CHANGES</a>
-        </div>
-        
-  
-        <!--<div class="flex justify-center">
-            <a href="#" class="bg-[red] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip" >DELETE</a>
-        </div>-->
-    </div>
-
-
-    <div class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name </p>
-        <p class = " text-gray-700 descrip">Email</p>
-        <p class = " text-gray-700 descrip">Birthdate</p>
-        <p class = " text-gray-700 descrip">Work/Course</p>
-        <p class = " text-gray-700 descrip">Company/School</p>
-        <p class = " text-gray-700 descrip">Phone Number</p>
-        <p class = " text-gray-700 descrip">Facebook Link</p>
-        <p class = " text-gray-700 descrip">Home Address</p>
-        <p class = " text-gray-700 descrip">Chapter</p>
-        <p class = " text-gray-700 descrip">Committee</p>
-        <p class = " text-gray-700 descrip">ALT Committee</p>
-        <p class = " text-gray-700 descrip">Status: PENDING</p>
-        <br>
-        
-        <form class="max-w-sm mx-auto">
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">STATUS</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-700 block w-full p-2.5 ">
-            <option value="US" selected>PENDING</option>
-            <option value="CA">APPROVED</option>
-            <option value="FR">DENIED</option>
-            </select>
-        </form>
-        <br>
-        <div class="flex justify-center">
-            <a href="#" class="bg-[white] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] descrip" >SAVE CHANGES</a>
+            <a (click)="updateStatus(volunteer.vid)" class="bg-[white] text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-[#477694] descrip cursor-pointer" >SAVE CHANGES</a>
         </div>
         
   
