@@ -42,7 +42,8 @@ export class LoginComponent {
       this.error = '';
       this.success = '';
       
-      this.http.post<LoginResponse>('http://localhost:3000/admin/login', this.formData.value).subscribe({
+      // this.http.post<LoginResponse>('http://localhost:3000/admin/login', this.formData.value).subscribe({
+      this.http.post<LoginResponse>('https://bangketa-eskwela-backend.onrender.com/admin/login', this.formData.value).subscribe({
         next: (response) => {
           if (response) {
             sessionStorage.setItem('isLoggedIn', 'true');      

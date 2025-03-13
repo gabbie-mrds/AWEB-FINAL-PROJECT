@@ -24,7 +24,8 @@ export class AdminComponent {
   loading = true;
 
   fetchAllData(){
-    this.http.get<{ contacts: any[]; volunteers: any[] }>('http://localhost:3000/admin').subscribe({
+    // this.http.get<{ contacts: any[]; volunteers: any[] }>('http://localhost:3000/admin').subscribe({
+    this.http.get<{ contacts: any[]; volunteers: any[] }>('https://bangketa-eskwela-backend.onrender.com//admin').subscribe({
       next: (data) => {
         this.data = data;
         this.loading = false;
@@ -41,7 +42,8 @@ export class AdminComponent {
     if (!confirm('Are you sure you want to delete this contact?')) {
       return;
     }
-    this.http.delete<any[]>(`http://localhost:3000/admin/contact/${id}`).subscribe({
+    // this.http.delete<any[]>(`http://localhost:3000/admin/contact/${id}`).subscribe({
+    this.http.delete<any[]>(`https://bangketa-eskwela-backend.onrender.com/admin/contact/${id}`).subscribe({
       next: () => {
         console.log(`Contact with ID ${id} deleted successfully.`);
         this.contactMessage = 'Contact deleted successfully!';
@@ -60,7 +62,8 @@ export class AdminComponent {
     }
     const statusField = document.getElementById(`status-${id}`) as HTMLSelectElement;
     const status = statusField.value;
-    this.http.patch<any[]>(`http://localhost:3000/admin/volunteer/${id}`, { status: status }).subscribe({
+    // this.http.patch<any[]>(`http://localhost:3000/admin/volunteer/${id}`, { status: status }).subscribe({
+    this.http.patch<any[]>(`https://bangketa-eskwela-backend.onrender.com/admin/volunteer/${id}`, { status: status }).subscribe({
       next: () => {
         console.log(`Volunteer ${id} status updated to ${status}`);
         this.volunteerMessage = `Volunteer status updated to ${status}`;
