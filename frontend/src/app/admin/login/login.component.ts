@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+
+interface LoginResponse {
+  user?: {
+    email: string;
+  };
+  success: boolean;
+  message?: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -16,10 +25,6 @@ import { MatButtonModule } from '@angular/material/button';
 })
 
 export class LoginComponent {
-
-  email: string = '';
-  password: string = '';
- 
   submitted = false;
   success = '';
   error = '';
@@ -29,22 +34,27 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
-  onClickSubmit(){
-    console.log(this.formData.value);
-    if (this.formData.valid){
+  onClickSubmit() {
+    if (this.formData.valid) {
       this.submitted = true;
+      this.error = '';
+      this.success = '';
       
-      this.http.post('http://localhost:3000/admin/login', this.formData.value).subscribe({
+      this.http.post<LoginResponse>('http://localhost:3000/admin/login', this.formData.value).subscribe({
         next: (response) => {
-          console.log('success:', response);
-          this.success = 'message sent successfully!';
-          this.formData.reset();
+          if (response) {
+            sessionStorage.setItem('isLoggedIn', 'true');      
+            this.success = 'Login successful!';
+            this.router.navigate(['/admin']);
+          } else {
+            this.error = 'Login failed. Please try again.';
+          }
         },
         error: (error) => {
           console.error('error:', error);
-          this.error = 'failed to send message. please try again later.';
+          this.error = error.error?.message || 'Failed to login. Please try again later.';
         },
         complete: () => {
           this.submitted = false;

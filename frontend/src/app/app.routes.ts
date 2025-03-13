@@ -6,6 +6,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
+import { authGuard } from './auth.guard';
 
 
 export const routes: Routes = [
@@ -16,6 +17,6 @@ export const routes: Routes = [
     {path: 'services', title: "BEF | SERVICES", component: ServicesComponent},
     {path: 'volunteer', title: "BEF | VOLUNTEER", component: VolunteerComponent},
     {path: 'login', title: "BEF | LOGIN", component: LoginComponent},
-    {path: 'admin', title: "BEF | ADMIN", component: AdminComponent }
+    {path: 'admin', title: "BEF | ADMIN", component: AdminComponent, canActivate: [authGuard] }
     
 ];

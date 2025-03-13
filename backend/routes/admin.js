@@ -2,6 +2,7 @@ import express from 'express';
 import db from '../config/db_config.js';
 import Contact from '../models/Contact.js';
 import Volunteer from '../models/Volunteer.js';
+import User from '../models/User.js';
 
 const app = express();
 app.use(express.json());
@@ -100,25 +101,50 @@ router.patch('/volunteer/:id', async (req, res) => {
   }
 });
 
-// SOURCE: https://www.syncfusion.com/blogs/post/implementing-route-protection-in-angular-using-canactivate
-        // https://ionic.io/docs/auth-connect/tutorials/angular/protecting-routes
-        // https://www.geeksforgeeks.org/how-to-use-authguard-for-angular-17-routes/
+// register admin user
+router.post('/register', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const numOfDocs = await User.countDocuments();
+    const docs = await User.create({
+      uid: numOfDocs + 1,
+      email: email,
+      password: password
+    });
+    res.status(200).json(docs);
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.send(500).json({message:'Internal Server Error'});
+  }
+});
+
 // login admin user
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  var success = false
 
-  // try {
-  //   const numOfDocs = await Volunteer.countDocuments();
-  //   const docs = await Volunteer.create({
-  //     uid: numOfDocs + 1,
-  //     email: email,
-  //     password: password,
-  //   });
-  //   res.status(200).json(docs);
-  // } catch (error) {
-  //   console.error('Error sending form:', error);
-  //   res.send(500).json({message:'Internal Server Error'});
-  // }
+  try {
+    const data = await User.findOne({email: email});
+
+    if (!data){
+      res.send(404).json({message:'User not found'});
+    }
+
+    if (data.email === email && data.password === password){
+      success = true
+      res.status(200).json(success);
+    } else {
+      success = false
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid password'
+      });
+    }
+  } catch (error) {
+    console.error('Error logging in user:', error);
+    res.send(500).json({message:'Internal Server Error'});
+  }
 });
 
 // dummy route to test connection
