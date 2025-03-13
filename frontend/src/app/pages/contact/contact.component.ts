@@ -54,7 +54,8 @@ export class ContactComponent {
     if (this.formData.valid){
       this.submitted = true;
       
-      this.http.post('http://localhost:3000/admin/contact', this.formData.value).subscribe({
+      // this.http.post('http://localhost:3000/admin/contact', this.formData.value).subscribe({
+      this.http.post('https://bangketa-eskwela-backend.onrender.com/admin/contact', this.formData.value).subscribe({
         next: (response) => {
           console.log('Success:', response);
           this.success = 'Message sent successfully!';
