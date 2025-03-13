@@ -25,7 +25,7 @@ export class AdminComponent {
 
   fetchAllData(){
     // this.http.get<{ contacts: any[]; volunteers: any[] }>('http://localhost:3000/admin').subscribe({
-    this.http.get<{ contacts: any[]; volunteers: any[] }>('https://bangketa-eskwela-backend.onrender.com//admin').subscribe({
+    this.http.get<{ contacts: any[]; volunteers: any[] }>('https://bangketa-eskwela-backend.onrender.com/admin').subscribe({
       next: (data) => {
         this.data = data;
         this.loading = false;
