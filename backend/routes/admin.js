@@ -83,6 +83,7 @@ router.post('/volunteer', async (req, res) => {
   }
 });
 
+// edit volunteer status
 router.patch('/volunteer/:id', async (req, res) => {
   const id = req.params.id
   const status = req.body.status;
@@ -97,6 +98,27 @@ router.patch('/volunteer/:id', async (req, res) => {
     console.error('Error updating status field:', error);
     res.send(500).json({message:'Internal Server Error'});
   }
+});
+
+// SOURCE: https://www.syncfusion.com/blogs/post/implementing-route-protection-in-angular-using-canactivate
+        // https://ionic.io/docs/auth-connect/tutorials/angular/protecting-routes
+        // https://www.geeksforgeeks.org/how-to-use-authguard-for-angular-17-routes/
+// login admin user
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // try {
+  //   const numOfDocs = await Volunteer.countDocuments();
+  //   const docs = await Volunteer.create({
+  //     uid: numOfDocs + 1,
+  //     email: email,
+  //     password: password,
+  //   });
+  //   res.status(200).json(docs);
+  // } catch (error) {
+  //   console.error('Error sending form:', error);
+  //   res.send(500).json({message:'Internal Server Error'});
+  // }
 });
 
 // dummy route to test connection
