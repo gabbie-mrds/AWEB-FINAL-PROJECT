@@ -5,6 +5,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { VolunteerComponent } from './pages/volunteer/volunteer.component';
 import { AdminComponent } from './admin/admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
 
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: 'contact', title: "BEF | CONTACT", component: ContactComponent},
     {path: 'services', title: "BEF | SERVICES", component: ServicesComponent},
     {path: 'volunteer', title: "BEF | VOLUNTEER", component: VolunteerComponent},
+    {path: 'login', title: "BEF | LOGIN", component: LoginComponent},
     {path: 'admin', title: "BEF | ADMIN", component: AdminComponent }
     
 ];

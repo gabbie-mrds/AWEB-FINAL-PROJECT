@@ -1,0 +1,38 @@
+<div class="relative h-40 md:h-60 bg-cover bg-center" style="background-image: url(page-hero.png); ">
+    <div class="absolute inset-0 flex items-center justify-center">
+
+        <h1 class="text-[#477694] lg:text-6xl md:text-5xl text-4xl font-bold title text-center">ADMIN LOGIN</h1>
+    </div>
+</div>
+
+<form [formGroup]="formData" (ngSubmit)="onClickSubmit()">  
+    <div class="mb-4">
+        <label class="block text-gray-800 text-lg title">EMAIL</label>
+        <mat-form-field appearance="outline" class="w-full custom-input">
+          <input matInput type="email" formControlName="email">
+          <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
+              Email is required and must be a valid email.
+          </mat-error>
+          <mat-error *ngIf="formData.get('email')?.hasError('maxlength')">
+            Email must not exceed 100 characters.
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-800 text-lg title">PASSWORD</label>
+        <mat-form-field appearance="outline" class="w-full custom-input">
+          <input matInput type="password" formControlName="password">
+          <mat-error *ngIf="formData.controls['password'].invalid && formData.controls['password'].touched">
+              Password is required.
+          </mat-error>
+          <mat-error *ngIf="formData.get('password')?.hasError('maxlength')">
+            Password must not exceed 100 characters.
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title" [disabled]="!formData.valid || submitted">{{ submitted ? 'Sending...' : 'SUBMIT' }}</button>
+
+    <p *ngIf="success" class="text-green-500 mt-2">{{ success }}</p> <!--  STYLE ACCORDINGLY NALANG -->
+    <p *ngIf="error" class="text-red-500 mt-2">{{ error }}</p> <!--  STYLE ACCORDINGLY NALANG -->
+</form>
+
