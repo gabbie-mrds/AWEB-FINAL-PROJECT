@@ -12,18 +12,18 @@ const app = express();
 
 // ------ TO BE ADDED WITH FRONTEND INIT ------ //
 
-// app.use(cors({
-//   origin: 'https://<frontendlink.com>',
-//   methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
-//   exposedHeaders: ['Content-Disposition'],
-// }));
+app.use(cors({
+  origin: 'https://bangketa-eskwela.netlify.app',
+  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+  exposedHeaders: ['Content-Disposition'],
+}));
 
 // ^ cors is typically required kapag fullstack kase the frontend & backend is hosted on different servers,
 // basically it specifies which frontend server can get access to backend resources
 
 // * if di nakaspecify yung link don sa origin sa taas, frontend won't be able to get data from backend
 
-app.use(cors());
+// app.use(cors());
 // ^ sa ngayon backend is accessible to any origin, kase ala pa tau server for frontend
 
 app.use(express.json());
