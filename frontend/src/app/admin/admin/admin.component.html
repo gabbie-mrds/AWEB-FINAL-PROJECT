@@ -9,19 +9,19 @@
 <br>
 <br>
 
-<h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center">MESSAGES</h1>
+<h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center" data-aos="fade-up">MESSAGES</h1>
 <div *ngIf="loading" class="text-gray-500 flex justify-center">Loading messages...</div>
 <div *ngIf="contactMessage" class="text-red-500 flex justify-center">{{ contactMessage }}</div>
 <div *ngIf="data.contacts.length === 0 && !loading" class="text-gray-500">No messages found.</div>
 <br>
 
-<div *ngIf="data.contacts.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
+<div *ngIf="data.contacts.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4" data-aos="fade-up">
 
   <div *ngFor="let contact of data.contacts" class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-    <p class = " text-gray-700 descrip">Name: {{ contact.name }}</p>
-    <p class = " text-gray-700 descrip">Email: {{ contact.email }}</p>
-    <p class = " text-gray-700 descrip">Message: {{ contact.message }}</p>
-    <p class = " text-gray-700 descrip">Date Added: {{ contact.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8'}}</p>
+    <p class = " text-gray-700 descrip"><span class = "font-bold">Name: </span> {{ contact.name }}</p>
+    <p class = " text-gray-700 descrip"><span class = "font-bold">Email: </span> {{ contact.email }}</p>
+    <p class = " text-gray-700 descrip"><span class = "font-bold">Message: </span> {{ contact.message }}</p>
+    <p class = " text-gray-700 descrip"><span class = "font-bold">Date Added: </span> {{ contact.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8'}}</p>
     <br>
     <div class="flex justify-center">
       <a (click)="deleteContact(contact.cid)" class="bg-red-400 text-black  py-2 px-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg title hover:bg-white descrip cursor-pointer" >DELETE</a>
@@ -31,28 +31,28 @@
 </div>
 <br><br>
 
-<h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center">VOLUNTEERS</h1>
+<h1 class="text-[#477694] lg:mb-5 lg:text-6xl md:text-5xl text-4xl font-bold title text-center" data-aos="fade-up">VOLUNTEERS</h1>
 <div *ngIf="loading" class="text-gray-500 flex justify-center">Loading messages...</div>
 <div *ngIf="volunteerMessage" class="text-red-500 flex justify-center">{{ volunteerMessage }}</div>
 <div *ngIf="data.volunteers.length === 0 && !loading" class="text-gray-500">No volunteers found.</div>
 <br>
 
-<div *ngIf="data.volunteers.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4">
+<div *ngIf="data.volunteers.length > 0" class="lg:grid lg:grid-cols-3 lg:gap-5 lg:mx-20 md:mx-28 md:my-2 lg:my-0 mx-4" data-aos="fade-up">
 
     <div *ngFor="let volunteer of data.volunteers" class="bg-[#A0C5DF] rounded-xl px-8 py-8 lg:my-0 my-2">
-        <p class = " text-gray-700 descrip">Name: {{ volunteer.name }} </p>
-        <p class = " text-gray-700 descrip">Email: {{ volunteer.email }}</p>
-        <p class = " text-gray-700 descrip">Birthdate: {{ volunteer.birthDate.split('T')[0] }}</p>
-        <p class = " text-gray-700 descrip">Work/Course: {{ volunteer.workCourse }}</p>
-        <p class = " text-gray-700 descrip">Company/School: {{ volunteer.companySchool }}</p>
-        <p class = " text-gray-700 descrip">Phone Number: {{ volunteer.phoneNum }}</p>
-        <p class = " text-gray-700 descrip">Facebook Link: {{ volunteer.facebook }}</p>
-        <p class = " text-gray-700 descrip">Home Address: {{ volunteer.address }}</p>
-        <p class = " text-gray-700 descrip">Chapter: {{ volunteer.chapter }}</p>
-        <p class = " text-gray-700 descrip">Committee: {{ volunteer.committee }}</p>
-        <p class = " text-gray-700 descrip">ALT Committee: {{ volunteer.altCommittee }}</p>
-        <p class = " text-gray-700 descrip">Status: {{ volunteer.status }}</p>
-        <p class = " text-gray-700 descrip">Date Added: {{ volunteer.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8' }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Name: </span> {{ volunteer.name }} </p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Email: </span> {{ volunteer.email }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Birthdate: </span> {{ volunteer.birthDate.split('T')[0] }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Work/Course: </span> {{ volunteer.workCourse }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Company/School: </span> {{ volunteer.companySchool }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Phone Number: </span> {{ volunteer.phoneNum }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Facebook Link: </span> {{ volunteer.facebook }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Address: </span> {{ volunteer.address }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Chapter: </span> {{ volunteer.chapter }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Committee: </span> {{ volunteer.committee }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Alternative Committee: </span> {{ volunteer.altCommittee }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Status: </span> {{ volunteer.status }}</p>
+        <p class = " text-gray-700 descrip"><span class = "font-bold">Date Added: </span> {{ volunteer.date | date:'HH:mm:ss |   yyyy-MM-dd' : 'GMT+8' }}</p>
         <br>
         
         <form class="max-w-sm mx-auto">

@@ -35,19 +35,19 @@ export class ServicesComponent {
       descrip: "A mobile outreach program delivering essential supplies, education, and healthcare services to remote and disadvantaged communities, bringing hope and support to those in need."
     },
     {
-      img: "alternative-learning.jpg",
-      title: "Alternative Educational Session",
-      descrip: "Empowering children through non-traditional learning methods, including hands-on activities, mentorship, and skill-based education to prepare them for a brighter future."
+      img: "thanksgiving.jpg",
+      title: "Give Back, Give Thanks",
+      descrip: "For the year 2024, BEF hosted a Thanksgiving celebration! This event serves as a reminder that acts of kindness, no matter how big or small, can create unforgettable memories and bring happiness to others."
     },
     {
-      img: "palawan-chapter.jpg",
-      title: "Palawan Chapter",
-      descrip: "Strengthening our community programs in Palawan through sustainable development efforts, education sponsorships, and skill-building workshops for children and youth."
+      img: "outreach.jpg",
+      title: "Outreach Program",
+      descrip: "Visiting Sitio locations and providing the children school supplies and food to nourish their well-being."
     },
     {
-      img: "food-caravan.jpg",
-      title: "Drive Caravan",
-      descrip: "Continuing our mission to reach out to underserved communities with our mobile units, providing food, clothing, educational materials, and medical assistance."
+      img: "team-building.jpg",
+      title: "Leadership Seminar and Team Building",
+      descrip: "This is to strengthen the bond of all the volunteers.  And in order to achieve the objective of the organization, through this activity they get to improve their communication and increase their productivity."
     },
 ];
 

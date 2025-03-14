@@ -7,6 +7,8 @@ import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import * as AOS from 'aos';
+ import 'aos/dist/aos.css';
 
 interface LoginResponse {
   user?: {
@@ -25,6 +27,11 @@ interface LoginResponse {
 })
 
 export class LoginComponent {
+
+  ngOnInit(){
+      AOS.init();
+    }
+    
   submitted = false;
   success = '';
   error = '';

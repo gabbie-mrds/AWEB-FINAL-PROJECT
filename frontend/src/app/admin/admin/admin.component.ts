@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as AOS from 'aos';
+ import 'aos/dist/aos.css';
 
 @Component({
   selector: 'app-admin',
@@ -12,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent {
 
+  ngOnInit(){
+      AOS.init();
+    } 
   data: { contacts: any[]; volunteers: any[] } = { contacts: [], volunteers: [] };
   contacts: any[] = [];
   contactMessage = '';

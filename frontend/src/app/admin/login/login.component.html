@@ -5,34 +5,44 @@
     </div>
 </div>
 
-<form [formGroup]="formData" (ngSubmit)="onClickSubmit()">  
-    <div class="mb-4">
-        <label class="block text-gray-800 text-lg title">EMAIL</label>
-        <mat-form-field appearance="outline" class="w-full custom-input">
-          <input matInput type="email" formControlName="email">
-          <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
-              Email is required and must be a valid email.
-          </mat-error>
-          <mat-error *ngIf="formData.get('email')?.hasError('maxlength')">
-            Email must not exceed 100 characters.
-          </mat-error>
-        </mat-form-field>
-    </div>
-    <div class="mb-4">
-        <label class="block text-gray-800 text-lg title">PASSWORD</label>
-        <mat-form-field appearance="outline" class="w-full custom-input">
-          <input matInput type="password" formControlName="password">
-          <mat-error *ngIf="formData.controls['password'].invalid && formData.controls['password'].touched">
-              Password is required.
-          </mat-error>
-          <mat-error *ngIf="formData.get('password')?.hasError('maxlength')">
-            Password must not exceed 100 characters.
-          </mat-error>
-        </mat-form-field>
-    </div>
-    <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title" [disabled]="!formData.valid || submitted">{{ submitted ? 'Sending...' : 'SUBMIT' }}</button>
+<div class="flex justify-center my-10 px-4" data-aos="fade-up">
+  <div class="w-full max-w-xl bg-[#A0C5DF] py-14 md:px-20 px-10 rounded-3xl shadow-md">
+    <form [formGroup]="formData" (ngSubmit)="onClickSubmit()">  
+        <div class="mb-4">
+            <label class="block text-gray-800 text-lg title">EMAIL</label>
+            <mat-form-field appearance="outline" class="w-full custom-input">
+              <input matInput type="email" formControlName="email">
+              <mat-error *ngIf="formData.controls['email'].invalid && formData.controls['email'].touched">
+                  Email is required and must be a valid email.
+              </mat-error>
+              <mat-error *ngIf="formData.get('email')?.hasError('maxlength')">
+                Email must not exceed 100 characters.
+              </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-lg title">PASSWORD</label>
+            <mat-form-field appearance="outline" class="w-full custom-input">
+              <input matInput type="password" formControlName="password">
+              <mat-error *ngIf="formData.controls['password'].invalid && formData.controls['password'].touched">
+                  Password is required.
+              </mat-error>
+              <mat-error *ngIf="formData.get('password')?.hasError('maxlength')">
+                Password must not exceed 100 characters.
+              </mat-error>
+            </mat-form-field>
+        </div>
 
-    <p *ngIf="success" class="text-green-500 mt-2">{{ success }}</p> <!--  STYLE ACCORDINGLY NALANG -->
-    <p *ngIf="error" class="text-red-500 mt-2">{{ error }}</p> <!--  STYLE ACCORDINGLY NALANG -->
-</form>
+        
+        <div class="flex justify-center">
+          <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title transform hover:scale-105" [disabled]="!formData.valid || submitted">{{ submitted ? 'Sending...' : 'SUBMIT' }}</button>
+  
+          
+        </div>
+        <p *ngIf="success" class="text-green-500 mt-2 text-center">{{ success }}</p> <!--  STYLE ACCORDINGLY NALANG -->
+          <p *ngIf="error" class="text-red-500 mt-2 text-center">{{ error }}</p> <!--  STYLE ACCORDINGLY NALANG -->
+        
+    </form>
+  </div>  
+</div>
 
