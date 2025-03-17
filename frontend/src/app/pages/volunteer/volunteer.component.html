@@ -178,9 +178,12 @@
           </div>
 
           <div class="flex justify-center title gap-3">
-            <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2 cursor-pointer" [disabled]="!formData.valid">SUBMIT</button>
 
             <button (click)="resetForm()" class="bg-white text-slate-900 px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2">RESET</button> <!-- STYLE ACCORDINGLY FRONTENDERS -->
+            
+            <button type="submit" class="bg-[#477694] text-white px-6 py-2 rounded-lg hover:bg-[#365b75] title w-full md:w-1/2 cursor-pointer" [disabled]="!formData.valid">SUBMIT</button>
+
+            
           </div>
 
           <p *ngIf="success" class="text-green-500 mt-2 text-center">{{ success }}</p> <!--  STYLE ACCORDINGLY NALANG -->
